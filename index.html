@@ -71,7 +71,7 @@
         init_map1();
     });
     
-    var socket = io();//https://aspirinenun.github.io/page/
+    var socket = io.connect('https://aspirinenun.github.io/page/');//https://aspirinenun.github.io/page/
     socket.on('maps', function(msg){
         console.log("map: "+msg);
         //socket.emit('chat message', msg);
