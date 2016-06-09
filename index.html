@@ -10,7 +10,7 @@
 
     <script type="text/javascript" src="js/jquery-1.10.2.min.js"></script>
     <script type="text/javascript" src="bootstrap/js/bootstrap.min.js"></script>
-    <script src="socket.io/socket.io.js"></script>
+    <script src="/socket.io/socket.io.js"></script>
 </head>
 <body>
 
@@ -71,11 +71,17 @@
         init_map1();
     });
     
-    var socket = io.connect('https://aspirinenun.github.io/page/');//https://aspirinenun.github.io/page/
-    socket.on('maps', function(msg){
-        console.log("map: "+msg);
-        //socket.emit('chat message', msg);
+    var socket = io('https://aspirinenun.github.io/page');//https://aspirinenun.github.io/page/
+    
+    //socket.on('connect', function(soc){
+    //    console.log(soc);
+    //});
+    socket.on('map', function(data){
+        console.log(data);
     });
+    //socket.on('disconnect', function(soc){
+    //    console.log(soc);
+    //});
 </script>
 
 <style>
