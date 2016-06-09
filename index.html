@@ -71,16 +71,16 @@
         init_map1();
     });
     
-    var socket = io();
-    io.on('connection', function(socket){
+    var svr = io();
+    svr.on('connection', function(socket){
         console.log('a user connected');
-        socket.on('disconnect', function(){
+        svr.on('disconnect', function(){
             console.log('user disconnected');
         });
       
-        socket.on('maps', function(msg){
+        svr.on('maps', function(msg){
             console.log("map: "+msg);
-            //io.emit('chat message', msg);
+            //socket.emit('chat message', msg);
         });
     });
 </script>
